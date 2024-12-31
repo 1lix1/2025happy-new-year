@@ -4,61 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新年快乐</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-        }
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white;
-            padding: 50px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-        }
-        .play-button {
-            background-color: #d32f2f;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <video class="video-background" loop>
-        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
-        您的浏览器不支持视频标签。
-    </video>
     <div id="container" class="container">
-        <button id="playButton" class="play-button" onclick="playVideo()">2025，启动！</button>
+        <h1>新年快乐！</h1>
+        <p>愿你在新的一年里幸福安康，万事如意！</p>
+        <button id="playButton" class="play-button">播放视频</button>
     </div>
 
-    <script>
-        function playVideo() {
-            const video = document.querySelector('.video-background');
-            video.play(); // 播放视频
-            video.muted = false; // 取消静音
+    <video id="backgroundVideo" class="video-background" loop muted preload="auto">
+        <source src="background.mp4" type="video/mp4">
+        您的浏览器不支持视频标签。
+    </video>
 
-            // 隐藏按钮和容器
-            const container = document.getElementById('container');
-            container.style.display = 'none'; // 隐藏容器
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
